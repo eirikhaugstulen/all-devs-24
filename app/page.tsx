@@ -1,6 +1,5 @@
 import ConfettiButtonWrapper from "@/components/magicui/ConfettiButtonWrapper";
 import DotPattern from "@/components/magicui/dot-pattern";
-import FlickeringGrid from "@/components/magicui/flickering-grid";
 import Globe from "@/components/magicui/globe";
 import HyperText from "@/components/magicui/hyper-text";
 import { Button } from "@/components/ui/button";
