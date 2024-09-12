@@ -4,6 +4,8 @@ import { encodedRedirect } from "@/utils/utils";
 import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { TablesInsert } from "@/database.types";
+import { revalidatePath } from 'next/cache';
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
@@ -127,4 +129,39 @@ export const signOutAction = async () => {
   const supabase = createClient();
   await supabase.auth.signOut();
   return redirect("/sign-in");
+};
+
+export const addArtistAction = async (artist: TablesInsert<'artists'>) => {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from('artists')
+    .insert(artist)
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Error adding artist:', error);
+    return { error: error.message };
+  }
+
+  return { artist: data };
+};
+
+export const addVenueAction = async (venue: TablesInsert<'venues'>) => {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from('venues')
+    .insert(venue)
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Error adding venue:', error);
+    return { error: error.message };
+  }
+
+  revalidatePath('/dashboard');
+  return { venue: data };
 };
