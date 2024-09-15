@@ -1,6 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from '@vercel/analytics/react';
+import { FloatingGithubButton } from "@/components/floating-github-button";
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -28,6 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <FloatingGithubButton />
         </ThemeProvider>
         <Analytics />
       </body>
