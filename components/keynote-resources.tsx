@@ -1,76 +1,62 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ExternalLinkIcon, WindIcon, DatabaseIcon, CodeIcon, EditIcon } from "lucide-react"
+import { WindIcon, DatabaseIcon, CodeIcon, EditIcon } from "lucide-react"
+import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid"
 
-interface Resource {
-  title: string
-  description: string
-  link: string
-  icon: React.ReactNode
-  color: string
-}
-
-const resources: Resource[] = [
+const resources = [
   {
-    title: "Flow by Whispr",
+    Icon: WindIcon,
+    name: "Flow by Whispr",
     description: "AI-powered workflow automation platform for seamless task management",
-    link: "https://www.flowvoice.ai",
-    icon: <WindIcon className="h-8 w-8" />,
-    color: "from-blue-400 to-cyan-300",
+    href: "https://www.flowvoice.ai",
+    cta: "Explore",
+    background: <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-300 opacity-20" />,
+    className: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Postgres.new",
-    description: "Instant, shareable PostgreSQL databases for quick prototyping and testing",
-    link: "https://postgres.new",
-    icon: <DatabaseIcon className="h-8 w-8" />,
-    color: "from-indigo-400 to-purple-300",
+    Icon: DatabaseIcon,
+    name: "Postgres.new",
+    description: "Instant, shareable PostgreSQL databases",
+    href: "https://postgres.new",
+    cta: "Explore",
+    background: <div className="absolute inset-0 bg-gradient-to-br from-indigo-400 to-purple-300 opacity-20" />,
+    className: "md:col-span-1 md:row-span-1",
   },
   {
-    title: "v0 by Vercel",
+    Icon: CodeIcon,
+    name: "v0 by Vercel",
     description: "AI-driven UI generation tool for rapid prototyping and design iteration",
-    link: "https://v0.dev",
-    icon: <CodeIcon className="h-8 w-8" />,
-    color: "from-red-400 to-pink-300",
+    href: "https://v0.dev",
+    cta: "Explore",
+    background: <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-pink-300 opacity-20" />,
+    className: "md:col-span-1 md:row-span-2",
   },
   {
-    title: "Cursor",
+    Icon: EditIcon,
+    name: "Cursor",
     description: "AI-enhanced code editor for smarter, more efficient programming",
-    link: "https://cursor.sh",
-    icon: <EditIcon className="h-8 w-8" />,
-    color: "from-orange-400 to-amber-300",
+    href: "https://cursor.sh",
+    cta: "Explore",
+    background: <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-amber-300 opacity-20" />,
+    className: "md:col-span-2 md:row-span-1",
   },
 ]
 
 export function KeynoteResources() {
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container mx-auto py-12 px-4">
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold mb-2">Resources</h1>
-        <p className="text-xl text-muted-foreground">Explore these innovative tools for developers</p>
+        <h1 className="text-4xl font-bold mb-3">Resources</h1>
+        <p className="text-xl text-muted-foreground">
+          Explore the tools we will be using during the keynote
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {resources.map((resource, index) => (
-          <Card key={index} className="group hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <CardHeader className={`bg-gradient-to-br ${resource.color} p-6 transition-all duration-300 group-hover:scale-105`}>
-              <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center mb-4 mx-auto shadow-lg">
-                {resource.icon}
-              </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <CardTitle className="text-xl mb-2 text-center">{resource.title}</CardTitle>
-              <CardDescription className="text-center">{resource.description}</CardDescription>
-            </CardContent>
-            <CardFooter className="pt-2 pb-6">
-              <Button className="w-full" asChild>
-                <a href={resource.link} target="_blank" rel="noopener noreferrer">
-                  Explore <ExternalLinkIcon className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
+      <div className="max-w-5xl mx-auto">
+        <BentoGrid className="md:grid-cols-3 md:auto-rows-[12rem] gap-4">
+          {resources.map((resource) => (
+            <BentoCard key={resource.name} {...resource} />
+          ))}
+        </BentoGrid>
       </div>
     </div>
   )
