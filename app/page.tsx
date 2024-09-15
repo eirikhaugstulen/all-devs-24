@@ -4,6 +4,12 @@ import Globe from "@/components/magicui/globe";
 import HyperText from "@/components/magicui/hyper-text";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'all_devs 24 - Generative AI for High-fidelity Prototypes',
+  description: 'Join all_devs 24 to explore the cutting-edge of Generative AI for creating high-fidelity prototypes. Learn, connect, and innovate with fellow developers.',
+};
 
 export default async function Index() {
   return (
