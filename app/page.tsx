@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'all_devs 24 - Generative AI for High-fidelity Prototypes',
-  description: 'Join all_devs 24 to explore the cutting-edge of Generative AI for creating high-fidelity prototypes. Learn, connect, and innovate with fellow developers.',
+  description: 'Join us to see how AI can make your prototypes and web-applications better. Simple tips for everyone, no expert skills needed!',
 };
 
 export default async function Index() {
