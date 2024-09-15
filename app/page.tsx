@@ -22,7 +22,7 @@ export default async function Index() {
         <div className='relative z-10 space-x-5 pb-20 md:pb-0'>
           <ConfettiButtonWrapper />
 
-          <Link href="/products">
+          <Link href="/resources">
             <Button
               variant="outline"
             >
