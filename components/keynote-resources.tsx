@@ -7,7 +7,7 @@ const resources = [
   {
     Icon: WindIcon,
     name: "Flow by Whispr",
-    description: "AI-powered workflow automation platform for seamless task management",
+    description: "Software that turns your voice into text, making it easier to control your computer by talking",
     href: "https://www.flowvoice.ai",
     cta: "Explore",
     background: <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-300 opacity-20" />,
