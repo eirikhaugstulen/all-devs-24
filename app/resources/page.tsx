@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto py-6 px-4">
         <Link href="/">
-          <Button variant="outline" className="mb-6">
-            <ArrowLeftIcon className="mr-2 h-4 w-4" /> Back to Home
+          <Button variant="outline" className="mb-6 dark:text-gray-200 dark:border-gray-700">
+            <ArrowLeftIcon className="mr-2 h-4 w-4 dark:text-gray-200" /> Back to Home
           </Button>
         </Link>
       </div>

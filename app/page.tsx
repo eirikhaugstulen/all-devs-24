@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 export default async function Index() {
   return (
     <>
-      <main className="relative flex min-h-screen flex-col items-center bg-gray-100 overflow-hidden">
-        <DotPattern className="absolute z-0" /> {/* Use DotPattern as background */}
+      <main className="relative flex min-h-screen flex-col items-center bg-gray-100 dark:bg-gray-900 overflow-hidden">
+        <DotPattern className="absolute z-0" />
         <Globe
-          className="relative z-0" // Make the globe big
+          className="relative z-0"
         />
         <div>
-          <HyperText text="all_devs 24" className="relative z-10 text-5xl md:text-6xl" /> {/* Hypertext only */}
+          <HyperText text="all_devs 24" className="relative z-10 text-5xl md:text-6xl text-black dark:text-white" />
         </div>
-        <h1 className='relative text-center z-10 text-3xl mt-10'>
+        <h1 className='relative text-center z-10 text-3xl mt-10 text-black dark:text-white'>
           Generative AI for High-fidelity Prototypes
         </h1>
         <div className='relative z-10 space-x-5 pb-20 md:pb-0'>
